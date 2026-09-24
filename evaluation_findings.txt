@@ -1,0 +1,15 @@
+# Evaluation of `agent_assignment` against `autonomous_company_research_agent_assignment.md`
+
+## 1. Implemented (Done)
+- **Input Flexibility**: Accepts company name/website. 
+- **Core Research Areas**: Extracts what they sell, who they sell to, and case studies securely using tool validations.
+- **Advanced Agent Architecture**: Transformed from a fixed-loop scraper to a TRUE tool-calling agent using `langgraph.prebuilt.create_react_agent`. The LLM has absolute freedom to decide which tools to use (`search_google`, `fetch_page`, `verify_and_save_evidence`).
+- **Anti-Hallucination & Evidence Traceability**: Implemented programmatic verification. The `verify_and_save_evidence` tool enforces that the `exact_quote` provided by the model must physically exist in the fetched HTML body for that URL. If it doesn't match, the tool rejects the evidence, preventing hallucinated quotes.
+- **Confidence Tracking**: Added a `confidence` (0.0 to 1.0) and `confidence_reason` field. The agent is prompted to increase confidence on corroboration and use negative confidence for contradictions.
+- **Strict Domain Verification**: Replaced naive Tavily fetching with `search_company_website_strict`. It parses the domain and enforces a heuristic match against the company name to avoid researching partial matches (e.g., Zylabs instead of Zycus).
+- **Persistent SQLite Caching**: Implemented `agent_cache.db` using `sqlite3`. All fetched pages are now cached persistently. Duplicate requests across different runs will return instantly from the database.
+- **Expected Output Format**: Generates the requested Markdown profile cleanly utilizing the saved evidence database.
+
+## 2. Pending / Missing / Deficient
+- **Robustness (JS Sites)**: Still relies on `requests` and `BeautifulSoup`. While we fixed the architecture, dealing with heavy JS SPAs still requires integrating `Playwright` or `Firecrawl`.
+- **Parallel Independent Research**: The agent operates sequentially. To achieve true parallel independent research, we would need to fan-out subagents (e.g. `case_study_hunter` running in parallel to `offerings_researcher`), which requires a more complex LangGraph orchestration using `Send` API.

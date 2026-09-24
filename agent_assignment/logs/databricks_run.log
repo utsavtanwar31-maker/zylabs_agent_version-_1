@@ -1,0 +1,18 @@
+Starting research on Databricks...
+--- INIT RESEARCH for Databricks ---
+--- BROWSING (0): https://www.databricks.com ---
+Extracted 4 offerings, 0 case studies.
+--- BROWSING (1): https://www.databricks.com/customers?itm_data=homepage-customerstories-middle-cta-seemorecustomerstories ---
+Extracted 1 offerings, 1 case studies.
+--- BROWSING (2): https://www.databricks.com/product/artificial-intelligence/agent-bricks?itm_data=homepage-pilltabs-exploreagentbricks&itm_source=www&itm_category=home&itm_page=home&itm_offer=agent-bricks ---
+Extracted 1 offerings, 1 case studies.
+--- BROWSING (3): https://www.databricks.com/customers/petsmart/ai?itm_data=marketing-nurture-discovery-offers&itm_source=www&itm_category=home&itm_page=home&itm_offer=ai ---
+Extracted 1 offerings, 1 case studies.
+--- BROWSING (4): https://www.databricks.com/customers?industry=2896 ---
+Extracted 1 offerings, 0 case studies.
+--- BROWSING (5): https://www.databricks.com/signup/?dbx_source=www&l=en-EN&itm_data=customer-prefooter&itm_source=www&itm_category=home&itm_page=home&itm_offer=signup ---
+Extracted 5 offerings, 5 case studies.
+--- Agent determined evidence is sufficient. ---
+--- GENERATING PROFILE ---
+Profile saved to databricks_profile.md
+Done!

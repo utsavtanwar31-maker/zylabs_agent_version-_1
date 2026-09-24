@@ -1,0 +1,11 @@
+langchain
+langchain-openai
+langgraph
+beautifulsoup4
+requests
+python-dotenv
+tavily-python
+pandas
+pydantic
+markdown
+html2text
